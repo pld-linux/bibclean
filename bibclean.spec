@@ -51,6 +51,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog README *.txt *.html *.pdf *.hlp *.bok *.org *.ltx *.eok
 %attr(755,root,root) %{_bindir}/*
-%attr(644,root,root) %config(noreplace) /etc/.bibcleanrc
+%attr(644,root,root) %config(noreplace) /etc/bibcleanrc
 %config(noreplace) /etc/env.d/*
 %{_mandir}/man1/*.1*
