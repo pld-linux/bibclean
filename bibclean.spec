@@ -2,6 +2,7 @@
 # - patch Makefile to make clean build using DESTDIR
 # - human-like bibcleanrc init file location
 Summary:	BibTeX prettyprinter, portability verifier, and syntax checker
+Summary(pl):	Narzêdzie do ³adnego drukowania, kontroli przeno¶no¶ci i sk³adni BibTeXa
 Name:		bibclean
 Version:	2.11.4
 Release:	0.9
@@ -15,9 +16,14 @@ BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-BibTeX prettyprinter, portability verifier, and syntax checker. Some other
-tools require that this be used before they operate, so they don't have to
-parse arbitrary BibTeX.
+BibTeX prettyprinter, portability verifier, and syntax checker. Some
+other tools require that this be used before they operate, so they
+don't have to parse arbitrary BibTeX.
+
+%description -l pl
+Narzêdzie do ³adnego drukowania, kontroli przeno¶no¶ci i sk³adni
+BibTeXa. Niektóre inne narzêdzia wymagaj± tego przed u¿yciem, dziêki
+czemu nie musz± przetwarzaæ dowolnego BibTeXa.
 
 %prep
 %setup -q
@@ -51,6 +57,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog README *.txt *.html *.pdf *.hlp *.bok *.org *.ltx *.eok
 %attr(755,root,root) %{_bindir}/*
-%attr(644,root,root) %config(noreplace) /etc/bibcleanrc
-%config(noreplace) /etc/env.d/*
+%config(noreplace) %verify(not size mtime md5) /etc/bibcleanrc
+%config(noreplace) %verify(not size mtime md5) /etc/env.d/*
 %{_mandir}/man1/*.1*
