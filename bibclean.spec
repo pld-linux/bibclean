@@ -13,7 +13,6 @@ Source0:	ftp://ftp.math.utah.edu/pub/tex/bib/%{name}-%{version}.tar.bz2
 URL:		http://www.ecst.csuchico.edu/~jacobsd/bib/tools/bibtex.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	rsh
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,6 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,/etc/env.d}
 
 %{__make} install \
+	CP="cp -p" \
 	DESTDIR=$RPM_BUILD_ROOT \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	mandir=$RPM_BUILD_ROOT%{_mandir}/man1
