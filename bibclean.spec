@@ -5,7 +5,7 @@ Summary:	BibTeX prettyprinter, portability verifier, and syntax checker
 Summary(pl):	Narzêdzie do ³adnego drukowania, kontroli przeno¶no¶ci i sk³adni BibTeXa
 Name:		bibclean
 Version:	2.11.4
-Release:	0.9
+Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	ftp://ftp.math.utah.edu/pub/tex/bib/%{name}-%{version}.tar.bz2
