@@ -47,9 +47,9 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,/etc/env.d}
 echo "#BIBCLEANEXT=.ini" > $RPM_BUILD_ROOT/etc/env.d/BIBCLEANEXT
 echo "#BIBINPUTS=\$PATH" > $RPM_BUILD_ROOT/etc/env.d/BIBINPUTS
 # Will that work?
-echo "BIBCLEANINI=/etc/bibcleanrc" > $RPM_BUILD_ROOT/etc/env.d/BIBCLEANINI
+echo "BIBCLEANINI=%{_sysconfdir}/bibcleanrc" > $RPM_BUILD_ROOT/etc/env.d/BIBCLEANINI
 
-mv -f $RPM_BUILD_ROOT%{_bindir}/.bibcleanrc $RPM_BUILD_ROOT/etc/bibcleanrc
+mv -f $RPM_BUILD_ROOT%{_bindir}/.bibcleanrc $RPM_BUILD_ROOT%{_sysconfdir}/bibcleanrc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -58,6 +58,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog README *.txt *.html *.pdf *.hlp *.bok *.org *.ltx *.eok
 %attr(755,root,root) %{_bindir}/*
-%config(noreplace) %verify(not size mtime md5) /etc/bibcleanrc
-%config(noreplace) %verify(not size mtime md5) /etc/env.d/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/bibcleanrc
+%config(noreplace) %verify(not md5 mtime size) /etc/env.d/*
 %{_mandir}/man1/*.1*
