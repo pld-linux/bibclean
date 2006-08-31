@@ -5,7 +5,7 @@ Summary:	BibTeX prettyprinter, portability verifier, and syntax checker
 Summary(pl):	Narzêdzie do ³adnego drukowania, kontroli przeno¶no¶ci i sk³adni BibTeXa
 Name:		bibclean
 Version:	2.11.4
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications
 Source0:	ftp://ftp.math.utah.edu/pub/tex/bib/%{name}-%{version}.tar.bz2
@@ -13,6 +13,7 @@ Source0:	ftp://ftp.math.utah.edu/pub/tex/bib/%{name}-%{version}.tar.bz2
 URL:		http://www.ecst.csuchico.edu/~jacobsd/bib/tools/bibtex.html
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	rpmbuild(macros) >= 1.316
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -44,15 +45,21 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,/etc/env.d}
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	mandir=$RPM_BUILD_ROOT%{_mandir}/man1
 
-echo "#BIBCLEANEXT=.ini" > $RPM_BUILD_ROOT/etc/env.d/BIBCLEANEXT
-echo "#BIBINPUTS=\$PATH" > $RPM_BUILD_ROOT/etc/env.d/BIBINPUTS
+echo '#BIBCLEANEXT=.ini' > $RPM_BUILD_ROOT/etc/env.d/BIBCLEANEXT
+echo '#BIBINPUTS=$PATH' > $RPM_BUILD_ROOT/etc/env.d/BIBINPUTS
 # Will that work?
-echo "BIBCLEANINI=%{_sysconfdir}/bibcleanrc" > $RPM_BUILD_ROOT/etc/env.d/BIBCLEANINI
+echo 'BIBCLEANINI=%{_sysconfdir}/bibcleanrc' > $RPM_BUILD_ROOT/etc/env.d/BIBCLEANINI
 
 mv -f $RPM_BUILD_ROOT%{_bindir}/.bibcleanrc $RPM_BUILD_ROOT%{_sysconfdir}/bibcleanrc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%env_update
+
+%postun
+%env_update
 
 %files
 %defattr(644,root,root,755)
