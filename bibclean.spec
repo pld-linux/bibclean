@@ -2,7 +2,7 @@
 # - patch Makefile to make clean build using DESTDIR
 # - human-like bibcleanrc init file location
 Summary:	BibTeX prettyprinter, portability verifier, and syntax checker
-Summary(pl):	Narzêdzie do ³adnego drukowania, kontroli przeno¶no¶ci i sk³adni BibTeXa
+Summary(pl.UTF-8):   NarzÄ™dzie do Å‚adnego drukowania, kontroli przenoÅ›noÅ›ci i skÅ‚adni BibTeXa
 Name:		bibclean
 Version:	2.11.4
 Release:	4
@@ -21,10 +21,10 @@ BibTeX prettyprinter, portability verifier, and syntax checker. Some
 other tools require that this be used before they operate, so they
 don't have to parse arbitrary BibTeX.
 
-%description -l pl
-Narzêdzie do ³adnego drukowania, kontroli przeno¶no¶ci i sk³adni
-BibTeXa. Niektóre inne narzêdzia wymagaj± tego przed u¿yciem, dziêki
-czemu nie musz± przetwarzaæ dowolnego BibTeXa.
+%description -l pl.UTF-8
+NarzÄ™dzie do Å‚adnego drukowania, kontroli przenoÅ›noÅ›ci i skÅ‚adni
+BibTeXa. NiektÃ³re inne narzÄ™dzia wymagajÄ… tego przed uÅ¼yciem, dziÄ™ki
+czemu nie muszÄ… przetwarzaÄ‡ dowolnego BibTeXa.
 
 %prep
 %setup -q
