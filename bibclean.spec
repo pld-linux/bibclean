@@ -2,7 +2,7 @@
 # - patch Makefile to make clean build using DESTDIR
 # - human-like bibcleanrc init file location
 Summary:	BibTeX prettyprinter, portability verifier, and syntax checker
-Summary(pl.UTF-8):   Narzędzie do ładnego drukowania, kontroli przenośności i składni BibTeXa
+Summary(pl.UTF-8):	Narzędzie do ładnego drukowania, kontroli przenośności i składni BibTeXa
 Name:		bibclean
 Version:	2.11.4
 Release:	4
